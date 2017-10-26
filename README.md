@@ -1,4 +1,4 @@
-# bucketinventory
+# python3-django-inventory
 An inventory management system, based on buckets you can place items in
 
 # Installation
