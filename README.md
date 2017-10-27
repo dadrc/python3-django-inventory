@@ -20,7 +20,7 @@ An inventory management system, based on buckets you can place items in
 	 - `django-admin startproject website`*
 	 - `cd website`*
   3. Get python3-django-inventory
-	  - `wget https://github.com/ChaosRambo/python3-django-inventory/raw/master/inventory.tar.gz -O - | tar -xz`
+	  - `git clone https://github.com/ChaosRambo/python3-django-inventory.git inventory`
 	4. Configure Django
 		-  `vim website/settings.py`*
 		- Add to `INSTALLED_APPS`:
