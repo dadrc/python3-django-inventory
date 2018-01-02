@@ -94,7 +94,7 @@ def add(request, bucket_id=None):
         identifier.save()
     else:
         context = {
-            'error_text': 'Invalid Identifier: ' + identifier.errors.as_json()
+            'error_text': 'Invalid Identifier: ' + identifier.errors.as_json(escape_html=False)
         }
         return render(request, 'inventory/error.html', context)
 
