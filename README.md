@@ -24,7 +24,7 @@ An inventory management system, based on buckets you can place items in
       - `django-admin startproject website`
       - `cd website`
   3. Get python3-django-inventory
-      - `git clone https://github.com/ChaosRambo/python3-django-inventory.git inventory`
+      - `git clone https://github.com/dadrc/python3-django-inventory.git inventory`
   4. Configure Django
       - `vim website/settings.py`
       - Add to `INSTALLED_APPS`:
@@ -38,7 +38,7 @@ An inventory management system, based on buckets you can place items in
      - Test Django
        - `./manage.py runserver`  
        - You will see the Django Test site
-       - ![enter image description here](https://github.com/ChaosRambo/python3-django-inventory/blob/master/screenshots/django_testpage.jpeg?raw=true)
+       - ![enter image description here](https://github.com/dadrc/python3-django-inventory/blob/master/screenshots/django_testpage.jpeg?raw=true)
   7. Add URL Config
     - `vim website/urls.py`
     - Add if not exists:
@@ -51,7 +51,7 @@ An inventory management system, based on buckets you can place items in
       - Test Django
         - `./manage.py runserver`
         - You will see an empty inventory
-        - ![enter image description here](https://github.com/ChaosRambo/python3-django-inventory/blob/master/screenshots/empty_inventory.jpeg?raw=true)
+        - ![enter image description here](https://github.com/dadrc/python3-django-inventory/blob/master/screenshots/empty_inventory.jpeg?raw=true)
   11. Add Admin
       - `./manage.py createsuperuser` 
   12. Close User
@@ -87,7 +87,7 @@ An inventory management system, based on buckets you can place items in
 
 1. Write NGINX Config
 	- Download this config
-		- `wget https://raw.githubusercontent.com/ChaosRambo/python3-django-inventory/master/documents/nginxconf -O inventory -P /etc/nginx/sites-available`
+		- `wget https://raw.githubusercontent.com/dadrc/python3-django-inventory/master/documents/nginxconf -O inventory -P /etc/nginx/sites-available`
 		- `ln -s /etc/nginx/sites-available/inventory /etc/nginx/sites-enabled/`
 	- Optional: DIY
 		- Write your Own Nginx config and create a Softlink to `sites-enabled`
