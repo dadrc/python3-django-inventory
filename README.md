@@ -1,8 +1,11 @@
 # python3-django-inventory
+
 An inventory management system, based on buckets you can place items in
 
 # Install Guide
+
 **Requirements (Global Installations)**
+
  - Python3
  - NGINX
  - python3-django
@@ -13,45 +16,46 @@ An inventory management system, based on buckets you can place items in
  **Install Steps**
 
  **Django**
- 1. Create a new User and login as User
-	 - `adduser inventory`*
-	 - `su - inventory`*
- 2. Create Django-Project
-	 - `django-admin startproject website`*
-	 - `cd website`*
+
+  1. Create a new User and login as User
+     - `adduser inventory`
+     - `su - inventory`
+  2. Create Django-Project
+      - `django-admin startproject website`
+      - `cd website`
   3. Get python3-django-inventory
-	  - `git clone https://github.com/ChaosRambo/python3-django-inventory.git inventory`
-	4. Configure Django
-		-  `vim website/settings.py`*
-		- Add to `INSTALLED_APPS`:
-			- `'inventory',`
-			- `'crispy_forms',`
-		- Add to the end of the Settings:
-			- STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-	5. Migrate
-		- `./manage.py --migrate`
-	 6. Optional Step
-		 - Test Django
-			 - `./manage.py --runserver`  
-			 - You will see the Django Test site
-			 - ![enter image description here](https://github.com/ChaosRambo/python3-django-inventory/blob/master/screenshots/django_testpage.jpeg?raw=true)
-	 7. Add URL Config
-		 - `vim website/urls.py`
-		 - Add if not exists:
-			 - `from django.conf.urls import url, include`
-		 - Add in `urlpatterns`
-			 - `url(r'^', include('inventory.urls', namespace='inventory')),`
-	  8.  Collectstatics
-		  - `./manage.py --collectstatics` 
-	  9. Optional Step
-		 - Test Django
-			 - `./manage.py runserver`
-			 - You will see an empty inventory
-			 - ![enter image description here](https://github.com/ChaosRambo/python3-django-inventory/blob/master/screenshots/empty_inventory.jpeg?raw=true)
-	 10. Add Admin
-		 - `./manage.py createsuperuser` 
-		11. Close User
-			- `exit`
+      - `git clone https://github.com/ChaosRambo/python3-django-inventory.git inventory`
+  4. Configure Django
+      - `vim website/settings.py`
+      - Add to `INSTALLED_APPS`:
+      - `'inventory',`
+      - `'crispy_forms',`
+      - Add to the end of the Settings:
+        - `STATIC_ROOT = os.path.join(BASE_DIR, 'static/')`
+  5. Migrate
+     - `./manage.py migrate`
+  6. Optional Step
+     - Test Django
+       - `./manage.py runserver`  
+       - You will see the Django Test site
+       - ![enter image description here](https://github.com/ChaosRambo/python3-django-inventory/blob/master/screenshots/django_testpage.jpeg?raw=true)
+  7. Add URL Config
+    - `vim website/urls.py`
+    - Add if not exists:
+      - `from django.urls import path, include, re_path`
+      - Add in `urlpatterns`
+        - `re_path(r'^', include(('inventory.urls', 'inventory'), namespace='inventory')),`
+  9. Collectstatics
+     - `./manage.py collectstatics` 
+  10. Optional Step
+      - Test Django
+        - `./manage.py runserver`
+        - You will see an empty inventory
+        - ![enter image description here](https://github.com/ChaosRambo/python3-django-inventory/blob/master/screenshots/empty_inventory.jpeg?raw=true)
+  11. Add Admin
+      - `./manage.py createsuperuser` 
+  12. Close User
+      - `exit`
 
 **uWSGI**
 	 

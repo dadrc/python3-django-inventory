@@ -40,17 +40,17 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=255)),
                 ('desc', models.TextField()),
                 ('created', models.DateField()),
-                ('bucket', models.ForeignKey(to='inventory.Bucket')),
+                ('bucket', models.ForeignKey(to='inventory.Bucket', on_delete=models.CASCADE)),
             ],
         ),
         migrations.AddField(
             model_name='identifier',
             name='item',
-            field=models.ForeignKey(to='inventory.Item'),
+            field=models.ForeignKey(to='inventory.Item', on_delete=models.CASCADE),
         ),
         migrations.AddField(
             model_name='identifier',
             name='type',
-            field=models.ForeignKey(to='inventory.IdentifierType'),
+            field=models.ForeignKey(to='inventory.IdentifierType', on_delete=models.CASCADE),
         ),
     ]
