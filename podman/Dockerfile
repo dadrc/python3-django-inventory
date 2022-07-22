@@ -2,7 +2,6 @@ FROM python:3-alpine
 RUN apk update && \
     apk upgrade && \
     apk add git netcat-openbsd && \
-    python -m pip install --upgrade pip && \
     pip install django django-crispy-forms psycopg2-binary
 WORKDIR /app
 RUN django-admin startproject website
