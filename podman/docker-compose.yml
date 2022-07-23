@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=inventory
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+  app:
+    build: .
+    ports:
+      127.0.0.1:10000:8000
+    environment:
+      - CSRF_URL=https://inventory.test.com
+      - POSTGRES_NAME=inventory
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_HOSTNAME=db
+      - DJANGO_LANGUAGE_CODE=en-us
+      - DJANGO_TIME_ZONE=UTC
+      - DJANGO_SECRET_KEY=test
+      - DJANGO_SUPERUSER_USERNAME=test
+      - DJANGO_SUPERUSER_PASSWORD=test
+      - DJANGO_SUPERUSER_EMAIL_ADDRESS=test@test.com
+    volumes:
+      - ./src/settings.py:/app/website/website/settings.py:ro
+    depends_on:
+      - db
+    restart: always
