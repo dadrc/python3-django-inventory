@@ -10,7 +10,11 @@
         <ul class="list-group list-group-flush mb-3">
         {% if items %}
             {% for item in items %}
-                <li class="list-group-item">{{ item.name }}</li>
+                {% if item.identifier_set.exists %}
+                    <li class="list-group-item">{{ item.name }} &nbsp; <span><small class="text-muted">{{ item.identifier_set.first.value }}</small></span></li>
+                {% else %}
+                    <li class="list-group-item">{{ item.name }}</li>
+                {% endif %}
             {% endfor %}
         {% else %}
             <li class="list-group-item">No items in bucket.</li>

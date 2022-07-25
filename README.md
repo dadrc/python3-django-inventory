@@ -12,7 +12,7 @@ An inventory management system, based on buckets you can place items in
  - python3-django-crispy-forms
  - uwsgi
  - uwsgi-plugin-python3
- 
+
  **Install Steps**
 
  **Django**
@@ -27,6 +27,7 @@ An inventory management system, based on buckets you can place items in
       - `git clone https://github.com/dadrc/python3-django-inventory.git inventory`
   4. Configure Django
       - `vim website/settings.py`
+      - Add an import for `os`
       - Add to `INSTALLED_APPS`:
       - `'inventory',`
       - `'crispy_forms',`
@@ -38,27 +39,27 @@ An inventory management system, based on buckets you can place items in
      - Test Django
        - `./manage.py runserver`  
        - You will see the Django Test site
-       - ![enter image description here](https://github.com/dadrc/python3-django-inventory/blob/master/screenshots/django_testpage.jpeg?raw=true)
+       - ![Screenshot of the Django test site](https://github.com/dadrc/python3-django-inventory/blob/master/screenshots/django_testpage.jpeg?raw=true)
   7. Add URL Config
     - `vim website/urls.py`
     - Add if not exists:
       - `from django.urls import path, include, re_path`
       - Add in `urlpatterns`
         - `re_path(r'^', include(('inventory.urls', 'inventory'), namespace='inventory')),`
-  9. Collectstatics
-     - `./manage.py collectstatics` 
+  9. Collect static files
+     - `./manage.py collectstatic`
   10. Optional Step
       - Test Django
         - `./manage.py runserver`
         - You will see an empty inventory
-        - ![enter image description here](https://github.com/dadrc/python3-django-inventory/blob/master/screenshots/empty_inventory.jpeg?raw=true)
+        - ![Screenshot of an empty inventory](https://github.com/dadrc/python3-django-inventory/blob/master/screenshots/empty_inventory.jpeg?raw=true)
   11. Add Admin
-      - `./manage.py createsuperuser` 
+      - `./manage.py createsuperuser`
   12. Close User
       - `exit`
 
 **uWSGI**
-	 
+
 1. Optional Step - Try if uWSGI correct work
 	-  `uwsgi --master --http :5000  --chdir /home/inventory/website --module website.wsgi:application`
 	- Don't worry, if you open the site in your browser, you won't see any static stuff
@@ -81,7 +82,7 @@ An inventory management system, based on buckets you can place items in
 			- http://uwsgi-docs.readthedocs.io/en/latest/Configuration.html
 4. Systemd
 	- `systemctl enable uwsgi.service`
-	- `systemctl start uwsgi.service` 
+	- `systemctl start uwsgi.service`
 
 **NGINX**
 
