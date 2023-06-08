@@ -28,7 +28,7 @@
     Move
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    {% for bucket in bucket_list %}
+    {% for bucket in bucket_list|dictsort:"name" %}
     <a class="dropdown-item" href='{% url 'inventory:move' i.id bucket.id %}?return={{ request.path|urlencode }}'>
     {{ bucket.name }}</a>
     {% endfor %}
